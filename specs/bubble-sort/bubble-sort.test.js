@@ -11,7 +11,26 @@
 */
 
 function bubbleSort(nums) {
-  // code goes here
+  let sortCompleted = false
+  while (!sortCompleted) {
+    let swapsInThisCycle = 0
+    for (let i = 0; i < nums.length -1; i++) {
+      // Define the items for comparison
+      let currentItem = nums[i]
+      let nextItem = nums[i+1]
+      if (currentItem > nextItem) {
+        // Reassign the values in the original array
+        nums[i] = nextItem
+        nums[i+1] = currentItem
+        swapsInThisCycle ++
+      }
+    }
+    // If a cycle completes without any swaps, the order is correct
+    if (!swapsInThisCycle) {
+      sortCompleted = true
+    }
+  }
+  return nums
 }
 
 // unit tests
